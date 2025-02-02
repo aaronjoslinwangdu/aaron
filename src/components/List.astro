@@ -1,0 +1,31 @@
+---
+import ListItem from './ListItem.astro';
+
+interface IListItem {
+  label: string;
+  link?: string | URL;
+}
+
+interface Props {
+  items: IListItem[];
+}
+
+const {
+  items,
+} = Astro.props;
+---
+<style>
+    .list-container {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<div class:list={['list-container']}>
+  {items.map(({ link, label }) => (
+    <ListItem 
+      label={label} 
+      link={link} 
+    />
+  ))}
+</div>

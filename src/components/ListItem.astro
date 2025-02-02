@@ -1,0 +1,28 @@
+---
+const {
+	label,
+	link,
+} = Astro.props;
+---
+<style>
+	.list-item {
+		text-align: center;
+		padding: 20px 0px;
+		text-decoration: none;
+	}
+
+	.list-item:hover {
+		background-color: rgba(0, 0, 0, 0.11);
+	}
+
+	.list-item-text {
+		font-size: x-large;
+		color: black;
+	}
+</style>
+
+<a href={link} class="list-item">
+	<span class="list-item-text">
+		{label}
+	</span>
+</a> 

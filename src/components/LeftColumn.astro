@@ -1,0 +1,19 @@
+---
+import Wooper from '../../public/Wooper.webp';
+
+import List from "./List.astro"
+import Icon from "./Icon.astro";
+
+const items = [
+	{ label: 'home', link: '/' },
+	{ label: 'about', link: '/about/' },
+	{ label: 'blogs', link: '/blogs/' },
+	{ label: 'wubsnata', link: '/blogs/' },
+];
+---
+<Icon 
+	link={Wooper} 
+	alt="wooper pokemon" 
+	iconLabel="aaron's blog"
+/>
+<List items={items}/>
