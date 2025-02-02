@@ -9,20 +9,25 @@ import Layout from "./Layout.astro";
     }
 
     .left-column {
-       background-color: #bcbcff;
         width: 20%;
     }
 
     .right-column {
-        background-color: #ffb4b4;
         width: 80%;
     }
+    
+    .divider {
+        margin: 0 8px;
+        opacity: 0.3;
+    }
 </style>
+
 <Layout>
     <div class="container">
         <div class="left-column">
             <slot name="left" />
         </div>
+        <hr class="divider" />
         <div class="right-column">
             <slot name="right" />
         </div>
