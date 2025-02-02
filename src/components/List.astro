@@ -4,6 +4,7 @@ import ListItem from './ListItem.astro';
 interface IListItem {
   label: string;
   link?: string | URL;
+  description?: string;
 }
 
 interface Props {
@@ -22,10 +23,11 @@ const {
 </style>
 
 <div class:list={['list-container']}>
-  {items.map(({ link, label }) => (
+  {items.map(({ link, label, description }) => (
     <ListItem 
       label={label} 
       link={link} 
+      description={description}
     />
   ))}
 </div>

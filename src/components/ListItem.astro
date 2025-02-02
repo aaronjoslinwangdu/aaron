@@ -2,6 +2,7 @@
 const {
 	label,
 	link,
+	description,
 } = Astro.props;
 ---
 <style>
@@ -9,15 +10,24 @@ const {
 		text-align: center;
 		padding: 20px 0px;
 		text-decoration: none;
+		color: black;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.list-item:hover {
-		background-color: rgba(0, 0, 0, 0.11);
+		background-color: rgba(0, 0, 0, 0.05);
 	}
 
 	.list-item-text {
 		font-size: x-large;
 		color: black;
+	}
+
+	.list-item-description {
+		font-size: medium;
+		margin-top: 15px;
+		padding: 0 5%;
 	}
 </style>
 
@@ -25,4 +35,9 @@ const {
 	<span class="list-item-text">
 		{label}
 	</span>
-</a> 
+	{description && (
+		<span class="list-item-description">
+		 {description}
+		</span>
+	)}
+</a>

@@ -2,17 +2,10 @@
 import '../styles/global.css';
 
 import TwoColumnLayout from '../layouts/TwoColumnLayout.astro';
-import LeftColumn from '../components/LeftColumn.astro';
-import List from "../components/List.astro";
-
-const items = [
-	{ label: 'Home', link: '/' },
-	{ label: 'About', link: '/about/' },
-	{ label: 'Blogs', link: '/blogs/' },
-	{ label: 'Not a Link' },
-];
+import Sidebar from '../components/Sidebar.astro';
+import BlogList from '../components/BlogList.astro';
 ---
 <TwoColumnLayout>
-	<LeftColumn slot="left"/>
-	<div slot="right">Right</div>
+	<Sidebar slot="left" />
+	<BlogList slot="right" />
 </TwoColumnLayout>

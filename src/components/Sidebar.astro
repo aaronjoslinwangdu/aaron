@@ -5,10 +5,9 @@ import List from "./List.astro"
 import Icon from "./Icon.astro";
 
 const items = [
-	{ label: 'home', link: '/' },
+	{ label: 'blogs', link: '/' },
 	{ label: 'about', link: '/about/' },
-	{ label: 'blogs', link: '/blogs/' },
-	{ label: 'wubsnata', link: '/blogs/' },
+	{ label: 'wubsnata', link: '/wubs/' },
 ];
 ---
 <Icon 
@@ -16,4 +15,4 @@ const items = [
 	alt="wooper pokemon" 
 	iconLabel="aaron's blog"
 />
-<List items={items}/>
+<List items={items} />
