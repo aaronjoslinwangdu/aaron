@@ -15,11 +15,6 @@ import Layout from "./Layout.astro";
     .right-column {
         width: 80%;
     }
-    
-    .divider {
-        margin: 0 8px;
-        opacity: 0.3;
-    }
 </style>
 
 <Layout>
@@ -27,7 +22,6 @@ import Layout from "./Layout.astro";
         <div class="left-column">
             <slot name="left" />
         </div>
-        <hr class="divider" />
         <div class="right-column">
             <slot name="right" />
         </div>
