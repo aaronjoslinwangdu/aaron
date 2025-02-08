@@ -1,11 +1,28 @@
 ---
-import '../styles/global.css';
+import '/src/styles/global.css';
+
+import { getCollection } from 'astro:content';
 
 import TwoColumnLayout from '../layouts/TwoColumnLayout.astro';
+import ContentWithTitle from '../layouts/ContentWithTitle.astro';
 import Sidebar from '../components/Sidebar.astro';
-import BlogList from '../components/BlogList.astro';
+import List from '../components/List.astro';
+
+const blogs = await getCollection('blog');
 ---
 <TwoColumnLayout>
 	<Sidebar slot="left" />
-	<BlogList slot="right" />
+	<ContentWithTitle 
+		slot="right" 
+		title="blogs" 
+		subtitles={['a place for things that i write']}
+	>
+		<List slot="content" items={blogs.map(({ data }) => (
+			{ 
+				label: data.title, 
+				description: data.date, 
+				link: `/blog/${data.slug}`,
+			}
+		))}>
+	</ContentWithTitle>
 </TwoColumnLayout>

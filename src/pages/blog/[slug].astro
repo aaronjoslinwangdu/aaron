@@ -1,0 +1,38 @@
+---
+import '/src/styles/global.css';
+
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+import TwoColumnLayout from '../../layouts/TwoColumnLayout.astro';
+import ContentWithTitle from '../../layouts/ContentWithTitle.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+interface Props {
+	blog: CollectionEntry<'blog'>;
+}
+
+export async function getStaticPaths() {
+	const blogs = await getCollection('blog');
+	return blogs.map((blog: CollectionEntry<'blog'>) => (
+		{ 
+			params: { slug: blog.data.slug },
+			props: { blog },
+		}
+	));
+}
+
+const { blog } = Astro.props;
+const { title, date } = blog.data;
+const { Content } = await render(blog);
+---
+<TwoColumnLayout>
+	<Sidebar slot="left" />
+	<ContentWithTitle 
+		slot="right"
+		title={title}
+		subtitles={[date]}
+	>
+		<Content slot="content" />
+	</ContentWithTitle>
+</TwoColumnLayout>
