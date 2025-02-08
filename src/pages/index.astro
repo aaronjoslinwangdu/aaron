@@ -2,6 +2,7 @@
 import '/src/styles/global.css';
 
 import { getCollection } from 'astro:content';
+import { getSlugFromTitle, getDateStr } from '../utils';
 
 import TwoColumnLayout from '../layouts/TwoColumnLayout.astro';
 import ContentWithTitle from '../layouts/ContentWithTitle.astro';
@@ -9,6 +10,7 @@ import Sidebar from '../components/Sidebar.astro';
 import List from '../components/List.astro';
 
 const blogs = await getCollection('blog');
+blogs.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 ---
 <TwoColumnLayout>
 	<Sidebar slot="left" />
@@ -20,8 +22,8 @@ const blogs = await getCollection('blog');
 		<List slot="content" items={blogs.map(({ data }) => (
 			{ 
 				label: data.title, 
-				description: data.date, 
-				link: `/blog/${data.slug}`,
+				description: getDateStr(data.date),
+				link: '/blog/' + getSlugFromTitle(data.title),
 			}
 		))}>
 	</ContentWithTitle>
