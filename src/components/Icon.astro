@@ -1,41 +1,32 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 
-const {
-	link,
-	alt,
-	iconLabel,
-} = Astro.props;
+const { link, alt, iconLabel } = Astro.props
 ---
-<style>
-	.icon-container {
-		padding: 20px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	.icon-image {
-		width: 150px;
-		height: 150px;
-	}
 
-	.icon-label {
-		font-size: xx-large;
-		margin-top: 15px;
-	}
+<style lang="scss">
+  .icon-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .icon-label {
+    font-size: xx-large;
+    margin-top: 15px;
+  }
 </style>
 
 <div class="icon-container">
-	<Image 
-		src={link} 
-		alt={alt}
-		class="icon-image"
-	/>
-	<span
-		class="icon-label"
-	>
-		{iconLabel}
-	</span>
+  <Image src={link} alt={alt} class="icon-image" />
+  <span class="icon-label">
+    {iconLabel}
+  </span>
 </div>

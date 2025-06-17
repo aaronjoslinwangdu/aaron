@@ -1,21 +1,20 @@
 ---
-import ListItem from './ListItem.astro';
+import ListItem from './ListItem.astro'
 
 interface IListItem {
-  label: string;
-  link?: string | URL;
-  description?: string;
+  label: string
+  link?: string | URL
+  description?: string
 }
 
 interface Props {
-  items: IListItem[];
+  items: IListItem[]
 }
 
-const {
-  items,
-} = Astro.props;
+const { items } = Astro.props
 ---
-<style>
+
+<style lang="scss">
   .list-container {
     display: flex;
     flex-direction: column;
@@ -24,11 +23,9 @@ const {
 </style>
 
 <div class:list={['list-container']}>
-  {items.map(({ link, label, description }) => (
-    <ListItem 
-      label={label} 
-      link={link} 
-      description={description}
-    />
-  ))}
+  {
+    items.map(({ link, label, description }) => (
+      <ListItem label={label} link={link} description={description} />
+    ))
+  }
 </div>

@@ -1,45 +1,38 @@
 ---
-const {
-	label,
-	link,
-	description,
-} = Astro.props;
+const { label, link, description } = Astro.props
 ---
-<style>
-	.list-item {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		padding: 20px 0px;
-		text-decoration: none;
-		color: black;
-		width: 100%;
-	}
 
-	.list-item:hover {
-		background-color: rgba(0, 0, 0, 0.05);
-	}
+<style lang="scss">
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0px;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+  }
 
-	.list-item-text {
-		font-size: x-large;
-		color: black;
-	}
+  .list-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
 
-	.list-item-description {
-		color: #4a4a4a;
-		font-size: medium;
-		margin-top: 15px;
-		padding: 0 5%;
-	}
+  .list-item-text {
+    font-size: x-large;
+    color: black;
+  }
+
+  .list-item-description {
+    color: #4a4a4a;
+    font-size: medium;
+    margin-top: 15px;
+    padding: 0 5%;
+  }
 </style>
 
 <a href={link} class="list-item">
-	<span class="list-item-text">
-		{label}
-	</span>
-	{description && (
-		<span class="list-item-description">
-		 {description}
-		</span>
-	)}
+  <span class="list-item-text">
+    {label}
+  </span>
+  {description && <span class="list-item-description">{description}</span>}
 </a>

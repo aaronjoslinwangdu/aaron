@@ -1,29 +1,30 @@
 ---
-import Layout from "./Layout.astro";
+import Layout from './Layout.astro'
 ---
-<style>
-    .container {
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-    }
 
-    .left-column {
-        width: 20%;
-    }
+<style lang="scss">
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
 
-    .right-column {
-        width: 80%;
-    }
+  .left-column {
+    width: 20%;
+  }
+
+  .right-column {
+    width: 80%;
+  }
 </style>
 
 <Layout>
-    <div class="container">
-        <div class="left-column">
-            <slot name="left" />
-        </div>
-        <div class="right-column">
-            <slot name="right" />
-        </div>
+  <div class="container">
+    <div class="left-column">
+      <slot name="left" />
     </div>
+    <div class="right-column">
+      <slot name="right" />
+    </div>
+  </div>
 </Layout>
