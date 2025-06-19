@@ -1,0 +1,140 @@
+---
+import Site from './Site.astro'
+---
+
+<style lang="scss">
+  $background-color: #f0f0f0;
+
+  .page {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    grid-template-areas: 'sidebar content';
+    height: 100vh;
+  }
+
+  .header {
+    grid-area: header;
+    display: none;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: $background-color;
+
+    .logo {
+      height: 15rem;
+      width: 75%;
+      margin: 0.5rem 2rem;
+      object-fit: contain;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .item {
+      width: 100%;
+      height: 6rem;
+      align-content: center;
+      text-align: center;
+
+      a {
+        display: block;
+        font-size: 1.75rem;
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    .item:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .content {
+    grid-area: content;
+    padding: 1rem;
+  }
+
+  @media (max-width: 978px) {
+    .page {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 4rem 1fr;
+      grid-template-areas: 'header' 'content';
+    }
+
+    .header {
+      grid-area: header;
+      background-color: $background-color;
+      display: flex;
+      justify-content: space-between;
+
+      .header-l {
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        .logo {
+          height: 3.5rem;
+          margin: 0.5rem 1rem;
+        }
+
+        .title {
+          font-size: 2.25rem;
+          text-align: center;
+        }
+      }
+
+      .header-r {
+        display: flex;
+        height: 100%;
+
+        .item {
+          align-content: center;
+          text-align: center;
+          width: 6rem;
+
+          a {
+            display: block;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+
+    .sidebar {
+      display: none;
+    }
+  }
+</style>
+
+<Site>
+  <div class="page">
+    <div class="header">
+      <div class="header-l">
+        <img class="logo" src="/wooper.webp" />
+        <div class="title">ajw</div>
+      </div>
+      <div class="header-r">
+        <div class="item"><a href="/">home</a></div>
+        <div class="item"><a href="/blog">blogs</a></div>
+        <div class="item"><a href="/natas">wubs</a></div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <img class="logo" src="/wooper.webp" />
+      <div class="title">aaron j-w</div>
+      <div class="item"><a href="/">home</a></div>
+      <div class="item"><a href="/blog">blogs</a></div>
+      <div class="item"><a href="/natas">wubs</a></div>
+    </div>
+    <div class="content">
+      <slot />
+    </div>
+  </div>
+</Site>

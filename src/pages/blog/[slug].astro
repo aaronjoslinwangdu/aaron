@@ -5,9 +5,8 @@ import { getCollection, render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import { getDateStr, getSlugFromTitle } from '../../utils'
 
-import TwoColumnLayout from '../../layouts/TwoColumnLayout.astro'
+import Page from '../../layouts/Page.astro'
 import ContentWithTitle from '../../layouts/ContentWithTitle.astro'
-import Sidebar from '../../components/Sidebar.astro'
 
 interface Props {
   blog: CollectionEntry<'blog'>
@@ -26,9 +25,8 @@ const { title, date } = blog.data
 const { Content } = await render(blog)
 ---
 
-<TwoColumnLayout>
-  <Sidebar slot="left" />
-  <ContentWithTitle slot="right" title={title} subtitles={[getDateStr(date)]}>
-    <Content slot="content" />
+<Page>
+  <ContentWithTitle title={title} subtitles={[getDateStr(date)]}>
+    <Content />
   </ContentWithTitle>
-</TwoColumnLayout>
+</Page>
