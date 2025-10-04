@@ -1,5 +1,12 @@
 ---
 import Site from './Site.astro'
+import Logo from '../assets/wooper.webp'
+import { Image } from 'astro:assets'
+
+const items = [
+  { path: '/', label: 'home' },
+  { path: '/natas', label: 'wubs' },
+]
 ---
 
 <style lang="scss">
@@ -71,6 +78,9 @@ import Site from './Site.astro'
       background-color: $background-color;
       display: flex;
       justify-content: space-between;
+      padding-right: 12px;
+      height: 4rem;
+      flex-shrink: 0;
 
       .header-l {
         display: flex;
@@ -78,7 +88,6 @@ import Site from './Site.astro'
         align-items: center;
 
         .logo {
-          height: 3.5rem;
           margin: 0.5rem 1rem;
         }
 
@@ -95,7 +104,7 @@ import Site from './Site.astro'
         .item {
           align-content: center;
           text-align: center;
-          width: 6rem;
+          width: 5rem;
 
           a {
             display: block;
@@ -117,21 +126,43 @@ import Site from './Site.astro'
   <div class="page">
     <div class="header">
       <div class="header-l">
-        <img class="logo" src="/wooper.webp" />
+        <Image
+          class="logo"
+          src={Logo}
+          height={56}
+          width={56}
+          layout="responsive"
+          alt="logo"
+        />
         <div class="title">ajw</div>
       </div>
       <div class="header-r">
-        <div class="item"><a href="/">home</a></div>
-        <div class="item"><a href="/blog">blog</a></div>
-        <div class="item"><a href="/natas">wubs</a></div>
+        {
+          items.map(({ path, label }) => (
+            <div class="item">
+              <a href={path}>{label}</a>
+            </div>
+          ))
+        }
       </div>
     </div>
     <div class="sidebar">
-      <img class="logo" src="/wooper.webp" />
+      <Image
+        class="logo"
+        src={Logo}
+        height={320}
+        width={320}
+        layout="responsive"
+        alt="logo"
+      />
       <div class="title">aaron j-w</div>
-      <div class="item"><a href="/">home</a></div>
-      <div class="item"><a href="/blog">blog</a></div>
-      <div class="item"><a href="/natas">wubs</a></div>
+      {
+        items.map(({ path, label }) => (
+          <div class="item">
+            <a href={path}>{label}</a>
+          </div>
+        ))
+      }
     </div>
     <div class="content">
       <slot />

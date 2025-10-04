@@ -11,13 +11,13 @@ const { title, subtitles } = Astro.props
   .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 25px 50px;
+    text-align: center;
   }
 
   .title-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 50px;
+    line-height: 32px;
   }
 
   .subtitle-container {
@@ -44,7 +44,7 @@ const { title, subtitles } = Astro.props
       {subtitles.map((sub) => <span class="subtitle-item">{sub}</span>)}
     </div>
   </div>
-  <div class="title-container">
+  <div>
     <slot />
   </div>
 </div>

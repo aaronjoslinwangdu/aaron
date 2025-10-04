@@ -3,7 +3,7 @@ import '/src/styles/global.scss'
 
 import { getCollection, render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
-import { getDateStr, getSlugFromTitle } from '../../utils'
+import { getDateStr } from '../../utils'
 
 import Page from '../../layouts/Page.astro'
 import ContentWithTitle from '../../layouts/ContentWithTitle.astro'
@@ -15,7 +15,7 @@ interface Props {
 export async function getStaticPaths() {
   const blogs = await getCollection('blog')
   return blogs.map((blog: CollectionEntry<'blog'>) => ({
-    params: { slug: getSlugFromTitle(blog.data.title) },
+    params: { slug: blog.data.slug },
     props: { blog },
   }))
 }
