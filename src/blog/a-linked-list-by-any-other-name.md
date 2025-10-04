@@ -1,9 +1,9 @@
 ---
 title: "a linked list by any other name"
-date: "02/11/2025 22:01"
 slug: "a-linked-list-by-any-other-name"
+date: "02/11/2025 22:01"
 ---
-[Leetcode 2360: Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
+[2360: Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
 
 The first thing you should notice about this problem is that the all of the `edges` given to us make up `1` to `n` singly-linked lists. This is because each of the `n` nodes have _at most one_ outgoing node. This is also very convenient for us, and we can use a simple depth-first search to solve the problem.
 

@@ -1,9 +1,9 @@
 ---
 title: "fun with prefix sum"
-date: "2/8/2025 16:00"
 slug: "fun-with-prefix-sum"
+date: "2/8/2025 16:00"
 ---
-[Leetcode 1546: Maximum Number of Non-Overlapping Subarrays with Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
+[1546: Maximum Number of Non-Overlapping Subarrays with Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
 
 I decided that I would write a post about this problem because in solving it, I found that it showed me a new way to use prefix sums. If you have solved [this problem](https://leetcode.com/problems/subarray-sum-equals-k) before, then the current problem in discussion should be a piece of cake. Let's do it!
 

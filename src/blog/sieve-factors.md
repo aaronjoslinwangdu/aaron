@@ -1,9 +1,9 @@
 ---
 title: "sieve + factors"
-date: "02/09/2025 11:30"
 slug: "sieve-factors"
+date: "02/09/2025 11:30"
 ---
-[Leetcode 3447. Assign Elements to Groups with Constraints](https://leetcode.com/problems/assign-elements-to-groups-with-constraints/)
+[3447. Assign Elements to Groups with Constraints](https://leetcode.com/problems/assign-elements-to-groups-with-constraints/)
 
 If you aren't familiar with the [Sieve of Erastosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), you may not know where to start with this problem. 
 
