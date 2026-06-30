@@ -1,0 +1,36 @@
+---
+title: "fun with prefix sum"
+date: "2/8/2025 16:00"
+---
+[1546: Maximum Number of Non-Overlapping Subarrays with Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
+
+I decided that I would write a post about this problem because in solving it, I found that it showed me a new way to use prefix sums. If you have solved [this problem](https://leetcode.com/problems/subarray-sum-equals-k) before, then the current problem in discussion should be a piece of cake. Let's do it!
+
+**Two key things to understand when solving this problem**
+1. You always want to use the first subarray that has sum of `target`
+2. How to know when a subarray has a sum of `target`
+
+For the first point, note that the problem description states that the subarrays are **non-empty** and more importantly, **non-overlapping**. Because we are trying to find the _maximum_ number of subarrays, there is no case where we would want to use a subarray `nums[i:k]` over `nums[i:j]` where `i < j < k`. 
+
+On to the second point, we need an efficient way to check if we have made a subarray with sum `target`. Due to the constraint that `-10^4 <= nums[i] <= 10^4`, negative numbers make our lift harder here. Because of the negatives, we can't use a sliding window approach, and have to use a **prefix sum map** to keep track of the sums within the range of the current subarray.
+
+The final piece of the puzzle is realizing that given a previous sum in our subarray `prev`, the current sum `cur`, and the `target`, that if `cur - prev = target` then a subarray _within_ our current subarray sums to `target`. Changing this equation to `cur - target = prev`, we now have a way to know when we have found a subarray that sums to `target`. We can now store values of `prev` in a `set`, keep track of the current subarray sum `cur`, and repeat this process each time we find a subarray that sums to `target`.
+
+My [accepted submission](https://leetcode.com/submissions/detail/1536319476/) can be found below.
+
+```py
+class Solution:
+    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+        ans = cur = 0
+        pre = {0}
+
+        for num in nums:
+            cur += num
+            if cur - target in pre:
+                ans += 1
+                cur = 0
+                pre.clear()
+            pre.add(cur)
+
+        return ans
+```

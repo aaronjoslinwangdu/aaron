@@ -1,32 +1,23 @@
 ---
-import '/src/styles/global.scss'
-
-import { getCollection, render } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
-import { getDateStr } from '../../utils'
-
-import Page from '../../layouts/Page.astro'
-import ContentWithTitle from '../../layouts/ContentWithTitle.astro'
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "../../layout/Layout.astro";
 
 interface Props {
-  blog: CollectionEntry<'blog'>
+	readonly blog: CollectionEntry<"blogs">;
 }
 
 export async function getStaticPaths() {
-  const blogs = await getCollection('blog')
-  return blogs.map((blog: CollectionEntry<'blog'>) => ({
-    params: { slug: blog.data.slug },
-    props: { blog },
-  }))
+	const blogs = await getCollection("blogs");
+	return blogs.map((blog) => ({
+		params: { slug: blog.id },
+		props: { blog },
+	}));
 }
 
-const { blog } = Astro.props
-const { title, date } = blog.data
-const { Content } = await render(blog)
+const { blog } = Astro.props;
+const { Content } = await render(blog);
 ---
-
-<Page>
-  <ContentWithTitle title={title} subtitles={[getDateStr(date)]}>
-    <Content />
-  </ContentWithTitle>
-</Page>
+<Layout title={blog.data.title}>
+  <a href="/">Home</a>
+  <Content />
+</Layout>
