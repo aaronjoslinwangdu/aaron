@@ -1,16 +1,10 @@
 ---
 interface Props {
-	readonly title: string;
+  readonly title: string;
 }
 
 const { title } = Astro.props;
 ---
-<style>
-  .container {
-
-  }
-
-</style>
 
 <html lang="en">
   <head>
@@ -20,8 +14,6 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="container">
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>

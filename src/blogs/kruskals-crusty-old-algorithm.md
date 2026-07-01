@@ -2,15 +2,17 @@
 title: "kruskal's crusty old algorithm"
 date: "10/4/2025 17:10"
 ---
+
 [1135: Connecting Cities with Minimum Cost](https://leetcode.com/problems/connecting-cities-with-minimum-cost)
 
 Once again, it's been a while. Graph theory was my favorite course during college, so let's talk about minimum spanning trees, disjoint sets, and Kruskal's algorithm.
 
 Let's start with the problem statement. Our first input is an integer `N`, which represents the total number of cities. We can think of these cities as vertices in a graph, and I'll refer to them as such for the rest of this article. The second input is a `list` `connections`, containing tuples of the form `(u, v, c)`, which represents a connection between vertices `u` and `v` with a cost of `c`. Our goal is to find the minimum cost to connect the `N` vertices, or return `-1` if this is not possible.
 
-If you are familiar with minimum spanning trees (MST), this goal should sound familiar. If not, a MST can be defined as _a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight_, and is pretty much what this problem is asking for. 
+If you are familiar with minimum spanning trees (MST), this goal should sound familiar. If not, a MST can be defined as _a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight_, and is pretty much what this problem is asking for.
 
 There are a few classic algorithms for finding a MST, but I will be using Kruskal's today. Kruskal's algorithm for our problem will consist of the following steps:
+
 1. Create a set of `N` single-vertex trees
 2. Sort `connections` in ascending order by cost `c`, because we want to minimize the cost sum
 3. Iterate through `connections`, adding an edge between `u` and `v` if they don't already belong to the same tree, adding `c` to a running sum
@@ -20,7 +22,7 @@ But why does this work? If you are dumb like me and don't want to write _or_ rea
 
 ![Kruskal's algorithm](https://upload.wikimedia.org/wikipedia/commons/b/bb/KruskalDemo.gif)
 
-Now, we have to deal with efficiently keeping track of and connecting these trees as we iterate through `connections`. That is where a _disjoint set_ comes into play. I implemented a `DisjointSet` `class` which uses union by rank and path compression to achieve a time complexity of `O(α(N))`, where `α` is the [inverse Ackermann function](https://en.wikipedia.org/wiki/Ackermann_function#Inverse), and can be treated as `O(1)` for all intents and purposes. I'm too stupid now, but I may attempt to explain this in further detail in the future. 
+Now, we have to deal with efficiently keeping track of and connecting these trees as we iterate through `connections`. That is where a _disjoint set_ comes into play. I implemented a `DisjointSet` `class` which uses union by rank and path compression to achieve a time complexity of `O(α(N))`, where `α` is the [inverse Ackermann function](https://en.wikipedia.org/wiki/Ackermann_function#Inverse), and can be treated as `O(1)` for all intents and purposes. I'm too stupid now, but I may attempt to explain this in further detail in the future.
 
 ```py
 class DisjointSet:
@@ -34,7 +36,7 @@ class DisjointSet:
         return self.parent[x]
 
     # Return bool to signify if the vertices were actually joined
-    def union(self, x: int, y: int) -> bool: 
+    def union(self, x: int, y: int) -> bool:
         root_x, root_y = self.find(x), self.find(y)
         if root_x == root_y:
             return False

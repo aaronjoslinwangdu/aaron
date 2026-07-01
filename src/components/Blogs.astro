@@ -2,14 +2,22 @@
 import { getCollection } from "astro:content";
 
 interface Props {
-	readonly count: number;
+  readonly count: number;
 }
 
 const { count } = Astro.props;
 const blogs = await getCollection("blogs");
 ---
+
 <ul>
-  {blogs.sort((a, b) => a.data.date < b.data.date ? 1 : -1)
-    .slice(0, count)
-    .map((blog) => (<li><a href={`/blog/${blog.id}`}>{blog.data.title}</a></li>))} 
+  {
+    blogs
+      .sort((a, b) => (a.data.date < b.data.date ? 1 : -1))
+      .slice(0, count)
+      .map((blog) => (
+        <li>
+          <a href={`/blog/${blog.id}`}>{blog.data.title}</a>
+        </li>
+      ))
+  }
 </ul>

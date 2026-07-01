@@ -2,11 +2,13 @@
 title: "super small special substrings"
 date: "2/17/2025 16:20"
 ---
+
 [3458. Select K Disjoint Special Substrings](https://leetcode.com/problems/select-k-disjoint-special-substrings/description/)
 
 This problem was hard. I've not spent enough time working on interval problems to immediately recognize the pattern required to solve the problem. Because of this, I wanted to write an article about this problem to solidify my understanding of the techniques needed to solve it, and others like it. Maybe someone else could find it useful as well.
 
 **Some observations that are important for solving the problem include:**
+
 1. We always want to use the smallest substring possible
 2. We always want to use the substring starting at the minimum possible index
 
@@ -27,13 +29,13 @@ My [accepted solution](https://leetcode.com/submissions/detail/1546693623/) can 
 ```py
 class Solution:
     def maxSubstringLength(self, s: str, k: int) -> bool:
-        
+
         ranges = {}
-        
+
         for i, c in enumerate(s):
             ranges.setdefault(c, [i, i])
             ranges[c][1] = i
-        
+
         intervals = []
 
         for start, end in ranges.values():
@@ -57,7 +59,7 @@ class Solution:
             if start > prev_end:
                 prev_end = end
                 special += 1
-            
-        
+
+
         return special >= k
 ```

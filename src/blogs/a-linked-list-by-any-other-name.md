@@ -2,6 +2,7 @@
 title: "a linked list by any other name"
 date: "02/11/2025 22:01"
 ---
+
 [2360: Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
 
 The first thing you should notice about this problem is that the all of the `edges` given to us make up `1` to `n` singly-linked lists. This is because each of the `n` nodes have _at most one_ outgoing node. This is also very convenient for us, and we can use a simple depth-first search to solve the problem.
@@ -19,11 +20,11 @@ In order to know _how long_ that cycle is, there are a few extra things we need 
 
 You might be thinking that `3` and `5` seem redundant, but they actually have different uses. We can overwrite the values in `edges` to achieve `3` in order to avoid traversing the same set of nodes twice (greatly improving performance). For `4` and `5`, we can lump these operations together using a hash-map to keep track of both, which will be used to actually calculate the length of any cycle that we encounter.
 
-While traversing the graph starting at a node `i`, we will go until cases `1` or `2` are satisfied, keeping track of `3`, `4`, and `5`. If we end up with case `2`, then the length of the current cycle will be `distance from root - distance from root at encountered node`. Logically, this is the same thing as the distance _starting_ from the repeated node _back_ to the repeated node. 
+While traversing the graph starting at a node `i`, we will go until cases `1` or `2` are satisfied, keeping track of `3`, `4`, and `5`. If we end up with case `2`, then the length of the current cycle will be `distance from root - distance from root at encountered node`. Logically, this is the same thing as the distance _starting_ from the repeated node _back_ to the repeated node.
 
 ![Example](https://assets.leetcode.com/uploads/2022/06/08/graph4drawio-5.png)
 
-From this example, you can see that if we started at node `1`, that the first time that we reached node `3` the number of edges traversed is `1`. Then we continue to `4`, `2`, and finally back to `3`. By the second time, we have traversed `4` edges, and you can see that the distances subtracted from each other will equal `4 - 1 = 3`, the length of the cycle. 
+From this example, you can see that if we started at node `1`, that the first time that we reached node `3` the number of edges traversed is `1`. Then we continue to `4`, `2`, and finally back to `3`. By the second time, we have traversed `4` edges, and you can see that the distances subtracted from each other will equal `4 - 1 = 3`, the length of the cycle.
 
 Keep track of the maximum length of any given cycle within the graph, making sure to update all nodes that we visit in `edges` to avoid repeated traversals and return that as our final answer.
 

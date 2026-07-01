@@ -1,21 +1,21 @@
 {
-	"name": "aaron",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-    "format": "biome format ./src",
-    "format:fix": "biome format --write ./src",
-		"lint": "biome lint --write",
-		"lint:fix": "biome check --write"
-	},
-	"dependencies": {
-		"astro": "^7.0.3"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.5.1"
-	}
+  "name": "aaron",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier 'src/' --write",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "astro": "7.0.3"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "prettier": "3.9.4",
+    "prettier-plugin-astro": "0.14.1"
+  }
 }

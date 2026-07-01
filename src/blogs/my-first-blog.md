@@ -2,6 +2,7 @@
 title: "my first blog"
 date: "2/8/2025 09:00"
 ---
+
 Well, _here it is_. This is the first post that i am making. Let's see how it goes!
 
 `print("hello word")`
