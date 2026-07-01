@@ -1,6 +1,6 @@
 ---
-title: "fun with prefix sum"
-date: "2/8/2025 16:00"
+title: Fun with Prefix Sum
+date: 2025/2/8
 ---
 
 [1546: Maximum Number of Non-Overlapping Subarrays with Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)

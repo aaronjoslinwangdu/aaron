@@ -1,6 +1,6 @@
 ---
-title: "sieve + factors"
-date: "02/09/2025 11:30"
+title: Sieve + Factors
+date: 2025/02/09
 ---
 
 [3447. Assign Elements to Groups with Constraints](https://leetcode.com/problems/assign-elements-to-groups-with-constraints/)

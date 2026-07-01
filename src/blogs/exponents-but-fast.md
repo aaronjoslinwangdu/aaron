@@ -1,6 +1,6 @@
 ---
-title: "exponents, but fast"
-date: "4/13/2025 13:20"
+title: Exponents, but Fast
+date: 2025/4/13
 ---
 
 [1922. Count Good Numbers](https://leetcode.com/problems/count-good-numbers/description/)

@@ -1,6 +1,6 @@
 ---
-title: "super small special substrings"
-date: "2/17/2025 16:20"
+title: Super Small Special Substrings
+date: 2025/2/17
 ---
 
 [3458. Select K Disjoint Special Substrings](https://leetcode.com/problems/select-k-disjoint-special-substrings/description/)

@@ -1,6 +1,6 @@
 ---
-title: "kruskal's crusty old algorithm"
-date: "10/4/2025 17:10"
+title: Kruskal's Crusty Old Algorithm
+date: 2025/10/4
 ---
 
 [1135: Connecting Cities with Minimum Cost](https://leetcode.com/problems/connecting-cities-with-minimum-cost)

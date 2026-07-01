@@ -1,6 +1,6 @@
 ---
-title: "a linked list by any other name"
-date: "02/11/2025 22:01"
+title: A Linked List by Any Other Name
+date: 2025/02/11
 ---
 
 [2360: Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)

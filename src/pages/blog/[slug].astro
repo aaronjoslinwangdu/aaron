@@ -18,6 +18,15 @@ const { blog } = Astro.props;
 const { Content } = await render(blog);
 ---
 
+<style>
+  h4 {
+    color: #696969;
+  }
+</style>
+
 <Layout title={blog.data.title}>
+  <h1>{blog.data.title}</h1>
+  <h4>{blog.data.date.toDateString()}</h4>
+  <hr />
   <Content />
 </Layout>
