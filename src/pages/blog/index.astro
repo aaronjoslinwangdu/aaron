@@ -1,7 +1,10 @@
 ---
+import Layout from "@components/Layout.astro";
 import Blogs from "@components/Blogs.astro";
 
 // TODO: pagination
 ---
 
-<Blogs count={20} />
+<Layout>
+  <Blogs count={20} />
+</Layout>

@@ -1,10 +1,22 @@
 ---
+import Navigation from "./Navigation.astro";
+
 interface Props {
-  readonly title: string;
+  readonly title?: string;
 }
 
-const { title } = Astro.props;
+const { title = "Aaron Joslin-Wangdu" } = Astro.props;
 ---
+
+<style>
+  html {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  body {
+    margin: 24px;
+  }
+</style>
 
 <html lang="en">
   <head>
@@ -14,6 +26,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Navigation />
     <slot />
   </body>
 </html>
