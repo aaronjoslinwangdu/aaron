@@ -8,14 +8,19 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier 'src/' --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate-types": "wrangler types",
+    "deploy:local": "npm run build && wrangler dev",
+    "deploy:dev": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "14.1.0",
     "astro": "7.0.3"
   },
   "devDependencies": {
     "husky": "9.1.7",
     "prettier": "3.9.4",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "wrangler": "4.106.0"
   }
 }
