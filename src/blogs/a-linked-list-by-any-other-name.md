@@ -22,7 +22,7 @@ You might be thinking that `3` and `5` seem redundant, but they actually have di
 
 While traversing the graph starting at a node `i`, we will go until cases `1` or `2` are satisfied, keeping track of `3`, `4`, and `5`. If we end up with case `2`, then the length of the current cycle will be `distance from root - distance from root at encountered node`. Logically, this is the same thing as the distance _starting_ from the repeated node _back_ to the repeated node.
 
-![Example](https://assets.leetcode.com/uploads/2022/06/08/graph4drawio-5.png)
+![A cycle found in the graph described below](../assets/longest-cycle.png)
 
 From this example, you can see that if we started at node `1`, that the first time that we reached node `3` the number of edges traversed is `1`. Then we continue to `4`, `2`, and finally back to `3`. By the second time, we have traversed `4` edges, and you can see that the distances subtracted from each other will equal `4 - 1 = 3`, the length of the cycle.
 

@@ -7,7 +7,7 @@ date: 2025/02/09
 
 If you aren't familiar with the [Sieve of Erastosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), you may not know where to start with this problem.
 
-![Sieve of Erastosthenes](https://upload.wikimedia.org/wikipedia/commons/9/94/Animation_Sieve_of_Eratosth.gif)
+![Animation of Sieve of Erastosthenes algorithm for N equals 120](../assets/sieve.gif)
 
 In short, you can use the Sieve to find all prime numbers from `2` to `n` with `O(n*log(log(n))` time complexity (given that updates are `O(1)`). We can do this by creating an array of length `n+1` and starting our iterations with the first prime number, `2`. Continue marking all multiples of `2` in our array until we are out of bounds, then move on to the next _unmarked_ index, which we can call `i`. Because of the way we are marking numbers we know that `i` is not a multiple of any of its predecessors, and therefore only has factors `1` and `i`, making `i` a prime number. Keep track of `i` and repeat the process until you have found all primes up to and including `n`.
 

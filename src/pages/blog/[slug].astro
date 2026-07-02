@@ -18,9 +18,22 @@ const { blog } = Astro.props;
 const { Content } = await render(blog);
 ---
 
-<style>
+<style is:global>
   h4 {
     color: #696969;
+  }
+
+  p code {
+    padding: 0.5px 4px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+
+  pre.astro-code {
+    width: fit-content;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f0f0f0 !important;
   }
 </style>
 

@@ -20,7 +20,7 @@ There are a few classic algorithms for finding a MST, but I will be using Kruska
 
 But why does this work? If you are dumb like me and don't want to write _or_ read a formal proof, here is the basic idea. All of the edges added by Kruskal's algorithm will have the minimum weight possible at the time (because we sorted), and will _not_ create a cycle. If we manage to create a tree which spans all `N` vertices, it should always have the minimum total weight! Hopefully that is convincing enough. A formal proof is left as an exercise to the reader.
 
-![Kruskal's algorithm](https://upload.wikimedia.org/wikipedia/commons/b/bb/KruskalDemo.gif)
+![Animation of Kruskal's algorithm connecting vertices](../assets/kruskal.gif)
 
 Now, we have to deal with efficiently keeping track of and connecting these trees as we iterate through `connections`. That is where a _disjoint set_ comes into play. I implemented a `DisjointSet` `class` which uses union by rank and path compression to achieve a time complexity of `O(α(N))`, where `α` is the [inverse Ackermann function](https://en.wikipedia.org/wiki/Ackermann_function#Inverse), and can be treated as `O(1)` for all intents and purposes. I'm too stupid now, but I may attempt to explain this in further detail in the future.
 
